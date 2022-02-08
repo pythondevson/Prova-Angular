@@ -6,7 +6,7 @@
     <!--Title è il testo che appare quando punti il mouse su un link, in questo caso uscirà il nome del prodotto più i suoi dettagli
       RouterLink è quello che viene visualizzato nell'url dopo la parte standard, nel caso di Phone xl verrà visualizzato .../products/1-->
     <a
-      [routerLink]="['/products', product.id, product.name]"
+      [routerLink]="['/products', product.id]"
       [title]="product.name + ' details'"
       >{{ product.name }}</a
     >
