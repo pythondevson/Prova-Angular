@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TopBarComponent {
 
+  url: string = "ciao"
 }
 
 
