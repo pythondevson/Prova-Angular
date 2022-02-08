@@ -1,0 +1,37 @@
+<h2>Products</h2>
+<!---->
+<!--For: Metti dentro product ad ogni ciclo uno dei prodotti di products-->
+<div *ngFor="let product of products">
+  <h3>
+      <!--Title è il testo che appare quando punti il mouse su un link, in questo caso uscirà il nome del prodotto più i suoi dettagli-->
+      <a href="" [title]="product.name + ' details'" >{{ product.name }}</a> <!--Le 2 parentesi graffe servono per indicare che il browser deve stampare il valore all'interno dell'attributo name di product-->
+  </h3>
+
+  <!--If: Se il prodotto ha una descrizione stampa ecc...-->
+  <p *ngIf="product.description"> 
+    Description: {{ product.description }}
+  </p>
+
+  <!--Bottone di tipo bottone e che quando viene cliccato richiama la funzione share() presente nel file product-list.component.ts-->
+  <button type="button" (click)="share()">
+    Share
+  </button>
+
+  <!--Selettore del componente produt-alert-->
+  <app-produt-alerts 
+    [product]="product" 
+    (notify)="onNotify($event)">
+    <!--
+      [product]="product" serve per passare al componente produt-alert il valore del prodotto, contenuto in product.
+      (notify)="onNotify($event)" serve per passare alla funzione onNotify il valore che restituisce in uscita l'evento notify
+    -->
+  </app-produt-alerts> 
+ 
+
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
