@@ -3,31 +3,29 @@
 <!--For: Metti dentro product ad ogni ciclo uno dei prodotti di products-->
 <div *ngFor="let product of products">
   <h3>
-      <!--Title è il testo che appare quando punti il mouse su un link, in questo caso uscirà il nome del prodotto più i suoi dettagli-->
-      <a href="" [title]="product.name + ' details'" >{{ product.name }}</a> <!--Le 2 parentesi graffe servono per indicare che il browser deve stampare il valore all'interno dell'attributo name di product-->
+    <!--Title è il testo che appare quando punti il mouse su un link, in questo caso uscirà il nome del prodotto più i suoi dettagli
+      RouterLink è quello che viene visualizzato nell'url dopo la parte standard, nel caso di Phone xl verrà visualizzato .../products/1-->
+    <a
+      [routerLink]="['/products', product.id, product.name]"
+      [title]="product.name + ' details'"
+      >{{ product.name }}</a
+    >
+    <!--Le 2 parentesi graffe servono per indicare che il browser deve stampare il valore all'interno dell'attributo name di product-->
   </h3>
 
   <!--If: Se il prodotto ha una descrizione stampa ecc...-->
-  <p *ngIf="product.description"> 
-    Description: {{ product.description }}
-  </p>
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
 
   <!--Bottone di tipo bottone e che quando viene cliccato richiama la funzione share() presente nel file product-list.component.ts-->
-  <button type="button" (click)="share()">
-    Share
-  </button>
+  <button type="button" (click)="share()">Share</button>
 
   <!--Selettore del componente produt-alert-->
-  <app-produt-alerts 
-    [product]="product" 
-    (notify)="onNotify($event)">
+  <app-produt-alerts [product]="product" (notify)="onNotify($event)">
     <!--
       [product]="product" serve per passare al componente produt-alert il valore del prodotto, contenuto in product.
       (notify)="onNotify($event)" serve per passare alla funzione onNotify il valore che restituisce in uscita l'evento notify
     -->
-  </app-produt-alerts> 
- 
-
+  </app-produt-alerts>
 </div>
 
 <!-- 

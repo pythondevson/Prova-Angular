@@ -14,24 +14,23 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: 'products', component: TopBarComponent },
       { path: '', component: ProductListComponent },
-      { path: 'homepage', component: ProductListComponent },
-    ])
+      {
+        path: 'products/:productId/:parametro',
+        component: ProductDetailsComponent,
+      },
+    ]),
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
     ProductListComponent,
     ProdutAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
 
 /*
 Copyright Google LLC. All Rights Reserved.
