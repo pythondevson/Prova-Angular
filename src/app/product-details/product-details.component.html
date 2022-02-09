@@ -1,11 +1,11 @@
 <h2>Product Details</h2>
 
-<!--Se il product esiste allora visualizza-->
+<!--Se il product esiste allora visualizza il nome, il prezzo in euro e loa descrizione-->
 <div *ngIf="product">
   <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency:'EUR'}}</h4>
+  <h4>{{ product.price | currency: 'EUR' }}</h4>
   <p>{{ product.description }}</p>
-  
+
+  <!--l'evento (click) richiama addToCart a cui viene anche passato il valore di product-->
   <button type="button" (click)="addToCart(product)">Buy</button>
 </div>
-

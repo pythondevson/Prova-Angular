@@ -1,6 +1,11 @@
 <h3>Shipping Prices</h3>
-
-<div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+<!--Async serve ad angular per poter fare il subscribe ad un Observable direttamente nel template, quindi senza richiamare la funzione apposita nel file ts-->
+<!-- <div class="shipping-item" *ngFor="let shipping of shippingCosts$ | async">
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency: 'EUR' }}</span>
+</div> -->
+<!-- Poiché abbiamo fatto il subscribe nel fuile ts, non c'è più bisogno di usare l'async -->
+<div class="shipping-item" *ngFor="let shipping of shippingCosts">
   <span>{{ shipping.type }}</span>
   <span>{{ shipping.price | currency: 'EUR' }}</span>
 </div>

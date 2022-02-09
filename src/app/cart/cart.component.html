@@ -9,15 +9,19 @@
 *ngFor serve per creare un ciclo iterativo che, ad ogni ciclo, assegna ad un solo elemento dell'array contenuto in items il nome item, che servirà poi per accedere agli attributi dell'elemento (es. item.name, item.price)-->
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }}</span>
-  <span>{{ item.price | currency: 'EUR' }}</span> <!--Currency stampa prima del valore item.price una valuta, se non specificata inserirà quella predefinita-->
+  <span>{{ item.price | currency: 'EUR' }}</span>
+  <!--Currency stampa prima del valore item.price una valuta, se non specificata inserirà quella predefinita-->
 </div>
 
 <!--Il form serve per inserire i dati del compratore e per concellare dal carrello i prodotti appenha comprati.
-L'attributo formGroup è associato a "checkoutForm"-->
+L'attributo formGroup è associato a "checkoutForm"
+(ngSubmit) indica che quando viene submit il form viene richiamata la funzione onSubmit() di cart.component.ts-->
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
+    <!--for="" indica a cosa si riferisce il label ed è molto simile all'alt nel tag img-->
     <label for="name"> Name </label>
 
+    <!--placeholder è la caratteristica che permette di inserire nell'input del testo che l'utente può solo visualizzare e che non influisce minimamente nell'input che inserirà-->
     <input
       placeholder="ex. Mario"
       id="name"

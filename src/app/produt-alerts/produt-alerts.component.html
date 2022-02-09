@@ -1,3 +1,4 @@
+<!--La condizione dell'if dice che se il prodotto esiste e il prezzo del prodotto è maggiore di 700 stampa quello che c'è dentro il tag p-->
 <p *ngIf="product && product.price > 700">
   <button type="button" (click)="notify.emit('You will be notified when the product goes on sale')">Notify Me</button>
   <!--click è l'evento che rappresenta l'azione di cliccare sul bottone. Nel momento in cui questo succede viene richiamata la funzione emit dell'oggetto notify che restituisce la stringa tra parentesi-->
