@@ -3,9 +3,8 @@ import { Product } from './products';
 import { HttpClient } from '@angular/common/http';
 
 interface Info {
-  type: string, 
-  price: number,
-  name: string
+  type: string;
+  price: number;
 }
 
 @Injectable({

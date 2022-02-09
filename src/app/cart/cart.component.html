@@ -1,10 +1,41 @@
 <h3>Cart</h3>
 
+<!--Serve a collegare la pagina cart alla pagina shipping tramite il link collegato al testo "Shipping Prices", routerLink funziona come un href, solo che rimane all'interno dello stesso url-->
 <p>
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
 
+<!--Stampa i prodotti che vogliamo comprare, storati in items (attributo di cart.component.ts).
+*ngFor serve per creare un ciclo iterativo che, ad ogni ciclo, assegna ad un solo elemento dell'array contenuto in items il nome item, che servirà poi per accedere agli attributi dell'elemento (es. item.name, item.price)-->
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }}</span>
-  <span>{{ item.price | currency: 'EUR' }}</span>
+  <span>{{ item.price | currency: 'EUR' }}</span> <!--Currency stampa prima del valore item.price una valuta, se non specificata inserirà quella predefinita-->
 </div>
+
+<!--Il form serve per inserire i dati del compratore e per concellare dal carrello i prodotti appenha comprati.
+L'attributo formGroup è associato a "checkoutForm"-->
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name"> Name </label>
+
+    <input
+      placeholder="ex. Mario"
+      id="name"
+      type="text"
+      formControlName="name"
+    />
+  </div>
+
+  <div>
+    <label for="address"> Address </label>
+
+    <input
+      placeholder="ex. pippo@baudo.com"
+      id="address"
+      type="text"
+      formControlName="address"
+    />
+  </div>
+
+  <button class="button" type="submit">Purchase</button>
+</form>
